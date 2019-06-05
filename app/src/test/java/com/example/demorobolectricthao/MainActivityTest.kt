@@ -1,9 +1,12 @@
+@file:Suppress("DEPRECATION")
+
 package com.example.demorobolectricthao
 
 import android.content.Intent
 import android.text.TextUtils
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import junit.framework.TestCase.assertNotNull
 import org.hamcrest.CoreMatchers.equalTo
@@ -14,10 +17,13 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.Robolectric
 import org.robolectric.RobolectricTestRunner
+import org.robolectric.RuntimeEnvironment.application
 import org.robolectric.Shadows.shadowOf
+import org.robolectric.annotation.Config
 
 
 @RunWith(RobolectricTestRunner::class)
+//@Config(shadows = [ShadowLog::class])
 class MainActivityTest {
     private var mActivity: MainActivity? = null
     private var edtNumber1: EditText? = null
@@ -25,6 +31,7 @@ class MainActivityTest {
     private var tvResult: TextView? = null
     private var btnOk: Button? = null
     private var btnStartNewActivity: Button? = null
+    private var imgAvatar: ImageView? = null
 
     @Before
     fun setUp() {
@@ -34,6 +41,7 @@ class MainActivityTest {
         tvResult = mActivity?.findViewById(R.id.tvResult)
         btnOk = mActivity?.findViewById(R.id.btnOk)
         btnStartNewActivity = mActivity?.findViewById(R.id.btnStartNewActivity)
+        imgAvatar = mActivity?.findViewById(R.id.imgAvatar)
     }
 
     @Test
@@ -79,4 +87,43 @@ class MainActivityTest {
 
         assertTrue(actualIntent.filterEquals(expectedIntent))
     }
+
+    @Test
+    @Config(qualifiers="en-port")
+    fun test_CustomShadows() {
+        assertThat(application.resources.getString(R.string.not_overridden), equalTo("Not Overridden"))
+    }
+
+    @Test
+    fun test_CustomShadows_value() {
+        assertThat(application.resources.getString(R.string.not_overridden), equalTo("Not Overridden"))
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

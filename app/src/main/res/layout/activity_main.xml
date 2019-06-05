@@ -122,5 +122,23 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edtNumber2"
                 app:layout_constraintVertical_bias="0.186"/>
+
+        <ImageView
+                android:id="@+id/imgAvatar"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/btnStartNewActivity"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                tools:ignore="ContentDescription" app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintVertical_bias="0.226"/>
+
     </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>
